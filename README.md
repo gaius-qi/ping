@@ -1,6 +1,9 @@
 # go-ping
 
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/gaius-qi/ping)](https://pkg.go.dev/github.com/gaius-qi/ping)
+[![GitHub release](https://img.shields.io/github/release/gaius-qi/ping.svg)](https://github.com/gaius-qi/ping/releases)
+[![CI](https://github.com/gaius-qi/ping/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/gaius-qi/ping/actions/workflows/ci.yml)
+[![GoDoc](https://godoc.org/github.com/gaius-qi/ping?status.svg)](https://godoc.org/github.com/gaius-qi/ping)
+[![LICENSE](https://img.shields.io/github/license/gaius-qi/ping.svg?style=flat-square)](https://github.com/gaius-qi/ping/blob/master/LICENSE)
 
 A simple but powerful ICMP echo (ping) library for Go, inspired by
 [go-fastping](https://github.com/tatsushid/go-fastping).
