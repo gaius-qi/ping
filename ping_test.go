@@ -573,7 +573,9 @@ func BenchmarkProcessPacket(b *testing.B) {
 	}
 
 	for k := 0; k < b.N; k++ {
-		pinger.processPacket(&pkt)
+		if err := pinger.processPacket(&pkt); err != nil {
+			b.Fatal(err)
+		}
 	}
 }
 

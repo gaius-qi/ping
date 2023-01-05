@@ -6,12 +6,11 @@ pkgs          = ./...
 
 all: style vet build test
 
-.PHONY: build
 build:
 	@echo ">> building ping"
 	GO111MODULE=$(GO111MODULE) $(GO) build $(GOOPTS) ./cmd/ping
+.PHONY: build
 
-.PHONY: style
 style:
 	@echo ">> checking code style"
 	@fmtRes=$$($(GOFMT) -d $$(find . -path ./vendor -prune -o -name '*.go' -print)); \
@@ -20,13 +19,14 @@ style:
 		echo "Please ensure you are using $$($(GO) version) for formatting code."; \
 		exit 1; \
 	fi
+.PHONY: style
 
-.PHONY: test
 test:
 	@echo ">> running all tests"
 	GO111MODULE=$(GO111MODULE) $(GO) test -race -cover $(GOOPTS) $(pkgs)
+.PHONY: test
 
-.PHONY: vet
 vet:
 	@echo ">> vetting code"
 	GO111MODULE=$(GO111MODULE) $(GO) vet $(GOOPTS) $(pkgs)
+.PHONY: vet

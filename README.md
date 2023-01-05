@@ -1,6 +1,6 @@
 # go-ping
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/go-ping/ping)](https://pkg.go.dev/github.com/go-ping/ping)
-[![Circle CI](https://circleci.com/gh/go-ping/ping.svg?style=svg)](https://circleci.com/gh/go-ping/ping)
+
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/gaius-qi/ping)](https://pkg.go.dev/github.com/gaius-qi/ping)
 
 A simple but powerful ICMP echo (ping) library for Go, inspired by
 [go-fastping](https://github.com/tatsushid/go-fastping).
@@ -44,7 +44,7 @@ pinger.OnRecv = func(pkt *ping.Packet) {
 
 pinger.OnDuplicateRecv = func(pkt *ping.Packet) {
 	fmt.Printf("%d bytes from %s: icmp_seq=%d time=%v ttl=%v (DUP!)\n",
-		pkt.Nbytes, pkt.IPAddr, pkt.Seq, pkt.Rtt, pkt.Ttl)
+		pkt.Nbytes, pkt.IPAddr, pkt.Seq, pkt.Rtt, pkt.TTL)
 }
 
 pinger.OnFinish = func(stats *ping.Statistics) {
@@ -69,7 +69,7 @@ in which case it calls the `OnDuplicateRecv` callback. When it's
 finished, it calls the `OnFinish` callback.
 
 For a full ping example, see
-[cmd/ping/ping.go](https://github.com/go-ping/ping/blob/master/cmd/ping/ping.go).
+[cmd/ping/ping.go](https://github.com/gaius-qi/ping/blob/master/cmd/ping/ping.go).
 
 ## Installation
 
@@ -87,6 +87,7 @@ $GOPATH/bin/ping
 ## Supported Operating Systems
 
 ### Linux
+
 This library attempts to send an "unprivileged" ping via UDP. On Linux,
 this must be enabled with the following sysctl command:
 
@@ -122,15 +123,15 @@ x/net/ipv4 and x/net/ipv6 packages.
 
 ### Plan 9 from Bell Labs
 
-There is no support for Plan 9. This is because the entire `x/net/ipv4` 
-and `x/net/ipv6` packages are not implemented by the Go programming 
+There is no support for Plan 9. This is because the entire `x/net/ipv4`
+and `x/net/ipv6` packages are not implemented by the Go programming
 language.
 
 ## Maintainers and Getting Help:
 
 This repo was originally in the personal account of
 [sparrc](https://github.com/sparrc), but is now maintained by the
-[go-ping organization](https://github.com/go-ping).
+[go-ping organization](https://github.com/gaius-qi).
 
 For support and help, you usually find us in the #go-ping channel of
 Gophers Slack. See https://invite.slack.golangbridge.org/ for an invite
@@ -138,4 +139,4 @@ to the Gophers Slack org.
 
 ## Contributing
 
-Refer to [CONTRIBUTING.md](https://github.com/go-ping/ping/blob/master/CONTRIBUTING.md)
+Refer to [CONTRIBUTING.md](https://github.com/gaius-qi/ping/blob/master/CONTRIBUTING.md)
