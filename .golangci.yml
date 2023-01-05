@@ -1,6 +1,33 @@
----
+run:
+  deadline: 3m
+  modules-download-mode: readonly
+
+linters-settings:
+  goconst:
+    min-occurrences: 10
+
 issues:
+  new: true
   exclude-rules:
-  - path: _test.go
-    linters:
+    - linters:
+        - staticcheck
+      text: "SA1019:"
+
+linters:
+  disable-all: true
+  enable:
+    - gci
+    - gofmt
+    - golint
+    - misspell
+    - govet
+    - goconst
+    - deadcode
+    - gocyclo
+    - staticcheck
     - errcheck
+
+output:
+  format: colored-line-number
+  print-issued-lines: true
+  print-linter-name: true
