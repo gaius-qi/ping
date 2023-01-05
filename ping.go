@@ -616,7 +616,7 @@ func (p *Pinger) recvICMP(
 			select {
 			case <-p.done:
 				return nil
-			case recv <- &packet{bytes: bytes, nbytes: len(bytes), ttl: ttl}:
+			case recv <- &packet{bytes: bytes, nbytes: n, ttl: ttl}:
 			}
 		}
 	}
